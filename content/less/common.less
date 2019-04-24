@@ -1,0 +1,58 @@
+// out: ../css/common.css
+@background-color: white;
+@max-image-width: 800px;
+
+@import "fonts.less";
+body {
+    background-image: url("../../content/images/sandymain.jpg"), linear-gradient(gray, white);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat, repeat;
+    //background-size: 70vmax;
+    background-size: 100%;
+    @media (min-width: @max-image-width){
+      background-size: @max-image-width; 
+    }
+  .floating(){
+    background-color: @background-color;
+    border-radius: 5px;
+    margin-bottom: 400px;
+    min-height: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .header-box{
+    .floating();
+    min-height: 400px;
+    text-align: center;
+    font-size: 4em;
+    font-family: @title-font;
+  }
+
+  .text-box{
+    .floating();
+    padding: 20px;
+    .title{
+      font-size: 2em;
+      text-align: center;
+      width: 100%;
+    }
+
+    .content{
+      font-size: 1em;
+      width: 100%;
+      display: block;
+    }
+  }
+  .verse {
+    font-family: @verse-font;
+  }
+  .reference{
+    font-family: @reference-font;
+  }
+
+  .spacer{
+    height: 10000px;
+    background-color: initial;
+  }
+}

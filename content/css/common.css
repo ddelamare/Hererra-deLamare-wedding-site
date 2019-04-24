@@ -1,0 +1,51 @@
+body {
+  background-image: url("../../content/images/sandymain.jpg"), linear-gradient(gray, white);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat, repeat;
+  background-size: 100%;
+}
+@media (min-width: 800px) {
+  body {
+    background-size: 800px;
+  }
+}
+body .header-box {
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 400px;
+  min-height: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  min-height: 400px;
+  text-align: center;
+  font-size: 4em;
+  font-family: 'Indie Flower', cursive;
+}
+body .text-box {
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 400px;
+  min-height: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 20px;
+}
+body .text-box .title {
+  font-size: 2em;
+  text-align: center;
+  width: 100%;
+}
+body .text-box .content {
+  font-size: 1em;
+  width: 100%;
+  display: block;
+}
+body .verse {
+  font-family: 'Playball', cursive;
+}
+body .reference {
+  font-family: 'Lobster Two', italic;
+}
+body .spacer {
+  height: 10000px;
+  background-color: initial;
+}
