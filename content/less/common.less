@@ -1,20 +1,24 @@
 // out: ../css/common.css
-@background-color: white;
-@max-image-width: 800px;
+@background-panel-color: @main-brand-color;
+@max-image-width: 1200px;
 
 @import "fonts.less";
+@import "palette.less";
+
 body {
-    background-image: url("../../content/images/sandymain.jpg"), linear-gradient(gray, white);
+    background-image: url("../../content/images/sandymain.jpg");
+    background-color: @dark-accent-color;
     background-attachment: fixed;
     background-position: center;
-    background-repeat: no-repeat, repeat;
+    background-repeat: no-repeat;
+    //background-position: top;
     //background-size: 70vmax;
-    background-size: 100%;
+    background-size: 100vmin;
     @media (min-width: @max-image-width){
-      background-size: @max-image-width; 
+      background-size: @max-image-width;
     }
   .floating(){
-    background-color: @background-color;
+    background-color: @background-panel-color;
     border-radius: 5px;
     margin-bottom: 400px;
     min-height: 50px;
@@ -22,11 +26,20 @@ body {
   }
 
   .header-box{
-    .floating();
     min-height: 400px;
     text-align: center;
-    font-size: 4em;
     font-family: @title-font;
+    color: @light-shade-color;
+    text-shadow: 1px 1px @dark-accent-color;
+    .title{
+      font-size: 3em;
+      .fluid-font-size(8vw; 32px; 80px);
+    }
+    .content{
+      font-size: 2em;
+      .fluid-font-size(4vw; 16px; 40px);
+    }
+
   }
 
   .text-box{
@@ -34,21 +47,27 @@ body {
     padding: 20px;
     .title{
       font-size: 2em;
+      .fluid-font-size(4vw; 16px; 32px);
       text-align: center;
       width: 100%;
     }
 
     .content{
       font-size: 1em;
+      .fluid-font-size(2vw; 16px; 32px);
       width: 100%;
       display: block;
     }
   }
   .verse {
     font-family: @verse-font;
+    text-align: center;
+    color: @light-accent-color;
   }
   .reference{
     font-family: @reference-font;
+    text-align: right;
+    color: @light-accent-color;
   }
 
   .spacer{

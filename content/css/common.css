@@ -1,28 +1,55 @@
 body {
-  background-image: url("../../content/images/sandymain.jpg"), linear-gradient(gray, white);
+  background-image: url("../../content/images/sandymain.jpg");
+  background-color: #835954;
   background-attachment: fixed;
   background-position: center;
-  background-repeat: no-repeat, repeat;
-  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: 100vmin;
 }
-@media (min-width: 800px) {
+@media (min-width: 1200px) {
   body {
-    background-size: 800px;
+    background-size: 1200px;
   }
 }
 body .header-box {
-  background-color: white;
-  border-radius: 5px;
-  margin-bottom: 400px;
-  min-height: 50px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   min-height: 400px;
   text-align: center;
-  font-size: 4em;
   font-family: 'Indie Flower', cursive;
+  color: #EABEAD;
+  text-shadow: 1px 1px #835954;
+}
+body .header-box .title {
+  font-size: 3em;
+  font-size: 24px;
+  font-size: 8vw;
+}
+@media (max-width: 400px) {
+  body .header-box .title {
+    font-size: 32px;
+  }
+}
+@media (min-width: 1000px) {
+  body .header-box .title {
+    font-size: 80px;
+  }
+}
+body .header-box .content {
+  font-size: 2em;
+  font-size: 24px;
+  font-size: 4vw;
+}
+@media (max-width: 400px) {
+  body .header-box .content {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1000px) {
+  body .header-box .content {
+    font-size: 40px;
+  }
 }
 body .text-box {
-  background-color: white;
+  background-color: #9C959D;
   border-radius: 5px;
   margin-bottom: 400px;
   min-height: 50px;
@@ -31,19 +58,47 @@ body .text-box {
 }
 body .text-box .title {
   font-size: 2em;
+  font-size: 24px;
+  font-size: 4vw;
   text-align: center;
   width: 100%;
 }
+@media (max-width: 400px) {
+  body .text-box .title {
+    font-size: 16px;
+  }
+}
+@media (min-width: 800px) {
+  body .text-box .title {
+    font-size: 32px;
+  }
+}
 body .text-box .content {
   font-size: 1em;
+  font-size: 24px;
+  font-size: 2vw;
   width: 100%;
   display: block;
 }
+@media (max-width: 800px) {
+  body .text-box .content {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1600px) {
+  body .text-box .content {
+    font-size: 32px;
+  }
+}
 body .verse {
   font-family: 'Playball', cursive;
+  text-align: center;
+  color: #D4AF37;
 }
 body .reference {
   font-family: 'Lobster Two', italic;
+  text-align: right;
+  color: #D4AF37;
 }
 body .spacer {
   height: 10000px;

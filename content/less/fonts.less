@@ -1,3 +1,28 @@
 @title-font:     'Indie Flower', cursive;
 @verse-font:      'Playball', cursive;
 @reference-font: 'Lobster Two', italic;
+
+
+.fluid-font-size(@viewport-font-size:4vw; @min-font-size:24px; @max-font-size: 48px; @fallback-font-size: 24px)
+{
+  @magnitude: unit(@viewport-font-size);
+  @dimension: width;//if(get-unit(@viewport-font-size) = 'vh', 'height', 'width');
+  @min-breakpoint: ((@min-font-size * 100) / @magnitude);
+  @max-breakpoint: ((@max-font-size * 100) / @magnitude);
+
+  // Enforce min size
+  @media (max-width: unit(@min-breakpoint;px)) {
+    font-size: @min-font-size;
+  }
+
+  // Enforce max size
+  @media (min-width: unit(@max-breakpoint;px)) {
+    font-size: @max-font-size;
+  }
+
+  // Default for some browsers
+  font-size: @fallback-font-size;
+
+  // Real Font size if not over max or min
+  font-size: @viewport-font-size
+}
