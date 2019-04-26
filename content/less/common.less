@@ -6,6 +6,7 @@
 @import "palette.less";
 
 body {
+  .backgrounded{
     background-image: url("../../content/images/sandymain.jpg");
     background-color: @dark-accent-color;
     background-attachment: fixed;
@@ -17,6 +18,7 @@ body {
     @media (min-width: @max-image-width){
       background-size: @max-image-width;
     }
+  }
   .floating(){
     background-color: @background-panel-color;
     border-radius: 5px;

@@ -1,4 +1,4 @@
-body {
+body .backgrounded {
   background-image: url("../../content/images/sandymain.jpg");
   background-color: #835954;
   background-attachment: fixed;
@@ -7,7 +7,7 @@ body {
   background-size: 100vmin;
 }
 @media (min-width: 1200px) {
-  body {
+  body .backgrounded {
     background-size: 1200px;
   }
 }
