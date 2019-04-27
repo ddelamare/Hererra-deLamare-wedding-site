@@ -9,8 +9,9 @@ module.exports = function(req, res, next) {
   if (!id || !password)
   {
     res.redirect('/login');
+    return
   }
-  
+
   guestSchema.findOne({name: id}).then( (guest) => {
     if (!guest) return false;
     return guest.comparePassword(password)
@@ -19,9 +20,7 @@ module.exports = function(req, res, next) {
 
     // If the
     if (authComplete) {
-      console.log(3);
       next()
-      console.log(4);
     }
     else{
       // Fall through every case... go to login screen
@@ -29,5 +28,4 @@ module.exports = function(req, res, next) {
     }
   })
   .catch((err) => next(err));
-
 }

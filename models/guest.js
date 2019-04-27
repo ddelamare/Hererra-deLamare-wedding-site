@@ -18,11 +18,10 @@ GuestSchema.pre('save', function(next) {
     // only hash the password if it has been modified (or is new)
     if (!guest.isModified('password')) return next();
 
-
-    bcrypt.hash(guest.password, SALT_WORK_FACTOR).then(function(err, hash) {
+    bcrypt.hash(guest.password, SALT_WORK_FACTOR).then(function(hash) {
       // override the cleartext password with the hashed one
       guest.password = hash;
-      return next()
+      return next();
     });
 });
 
