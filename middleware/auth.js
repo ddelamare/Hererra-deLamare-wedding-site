@@ -6,21 +6,32 @@ module.exports = function(req, res, next) {
   var password = req.query.token;
 
   var authComplete = false;
-  if (!id || !password)
+  var sessionExists = false;
+
+  if (req.session.guest)
+  {
+    id = req.session.guest.name;
+    sessionExists = true;
+  }
+  if ((!id || !password) && !sessionExists)
   {
     res.redirect('/login');
-    return
+    return;
   }
 
   guestSchema.findOne({name: id}).then( (guest) => {
     if (!guest) return false;
-    return guest.comparePassword(password)
+
+    delete guest.password;
+    req.session.guest = guest;
+
+    return sessionExists || guest.comparePassword(password)
   }).then( (isMatch) => {
     authComplete = !!isMatch;
 
     // If the
     if (authComplete) {
-      next()
+      return next();
     }
     else{
       // Fall through every case... go to login screen

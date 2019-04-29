@@ -12,6 +12,7 @@
     "bytes": "^3.1.0",
     "commander": "^2.20.0",
     "concat-map": "0.0.1",
+    "connect-mongo": "^2.0.3",
     "content-disposition": "^0.5.3",
     "content-type": "^1.0.4",
     "cookie": "^0.3.1",
@@ -26,6 +27,7 @@
     "etag": "^1.8.1",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
+    "express-session": "^1.16.1",
     "finalhandler": "^1.1.1",
     "forwarded": "^0.1.2",
     "fresh": "^0.5.2",
@@ -76,6 +78,7 @@
     "uglify-js": "^3.5.8",
     "unpipe": "^1.0.0",
     "utils-merge": "^1.0.1",
+    "uuid": "^3.3.2",
     "vary": "^1.1.2",
     "wordwrap": "^1.0.0",
     "wrappy": "^1.0.2"
