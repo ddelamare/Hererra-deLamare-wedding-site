@@ -29,4 +29,17 @@ GuestSchema.methods.comparePassword = function(candidatePassword, cb) {
     return bcrypt.compare(candidatePassword, this.password);
 };
 
+GuestSchema.statics.authenticate = function(id,password, sessionExists)
+{
+  return this.findOne({name: id}).then( (guest) => {
+    if (!guest) return null;
+
+    return sessionExists || guest.comparePassword(password).then(function(isMatch)
+    {
+      return isMatch? guest  :null;
+    });
+  });
+
+}
+
 module.exports = mongoose.model('Guest', GuestSchema);

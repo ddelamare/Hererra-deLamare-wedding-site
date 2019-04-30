@@ -1,3 +1,11 @@
-<div>
-  You need a password!
+<link rel="stylesheet" href="content/css/login.css" type="text/css">
+<div class="loginbackground">
+  <div class="popup">
+    <div class="loginheader">Welcome!</div>
+    <form action="/api/login" class="entry" method="post">
+      <input type="text" placeholder="Guest" name="guest"/>
+      <input type="password" placeholder="PIN" name="pin"/>
+      <input type="submit" value="Login">
+    </div>
+  <div>
 </div>

@@ -7,6 +7,8 @@ const config = require('./models/config')
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+
 const port = 8000
 
 var app = express();
@@ -20,6 +22,11 @@ app.use('/content', express.static(path.join(__dirname, 'content')))
 
 // Insert middleware for all requests
 app.use(require('./middleware/timer'))
+
+// support json encoded bodies
+app.use(bodyParser.json());
+// support encoded bodies
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Wait until db connection has been made
 db.then(function(val)
@@ -39,6 +46,9 @@ db.then(function(val)
         maxAge: 30 * 86400 * 1000, // 1 Month
     }
     }));
+
+    // Register API calls
+    app.use('/api', require('./controllers/api'));
 
     // Register all controllers
     app.use('/', require('./controllers/home'));

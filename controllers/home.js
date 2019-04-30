@@ -12,20 +12,11 @@ router.get('/login', function(req, res){
   res.render('login');
 });
 
-router.get('/add', function(req, res){
-  var guest = new guestSchema({
-    name: 'me',
-    password: 'alsome'
-  });
-  guest.save();
-  res.send("Added user");
+router.get('/logout',function(req,res)
+{
+  if (req.session)
+    req.session.destroy();
+  res.redirect('/login');
 });
-
-//var MyModel = mongoose.model('Test', new mongoose.Schema({ name: String }));
-
-//var test = new MyModel ({name :"hi"});
-//test.save(test).catch(err => conmsole.log(error));
-//MyModel.findOne(function(error, result) { console.log(error) });
-
 
 module.exports = router;

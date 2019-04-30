@@ -19,18 +19,13 @@ module.exports = function(req, res, next) {
     return;
   }
 
-  guestSchema.findOne({name: id}).then( (guest) => {
-    if (!guest) return false;
+  guestSchema.authenticate(id,password,sessionExists).then( (guest) => {
+    authComplete = !!guest;
 
-    delete guest.password;
-    req.session.guest = guest;
-
-    return sessionExists || guest.comparePassword(password)
-  }).then( (isMatch) => {
-    authComplete = !!isMatch;
-
-    // If the
+    // If the auth is done, we can set the session
     if (authComplete) {
+      guest.password = null;
+      req.session.guest = guest;
       return next();
     }
     else{

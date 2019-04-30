@@ -1,10 +1,12 @@
+body {
+  margin: 0;
+}
 body .backgrounded {
   background-image: url("../../content/images/sandymain.jpg");
-  background-color: #FC8C80;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100vmin;
+  background-size: 100vmin, cover;
 }
 @media (min-width: 1200px) {
   body .backgrounded {
@@ -50,8 +52,10 @@ body .header-box .content {
 }
 body .text-box {
   background-color: #FC8C80;
+  border-radius: 5px;
   margin-bottom: 400px;
   min-height: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 2vh 0 ;
   width: 100vmin;
   max-width: 1200px;

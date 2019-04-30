@@ -13,11 +13,11 @@ var mongoose = require('mongoose'),
       {
         return;
       }
-      return mongoose.model('Config', Config).findOne().then(function(config)
+      return this.findOne().then(function(config)
       {
         if (!config)
         {
-          config = new mongoose.model('Config', Config)(
+          config = new this(
             {
               // randomize secret
               secret: uuidv4()
