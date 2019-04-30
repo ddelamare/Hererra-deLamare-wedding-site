@@ -1,5 +1,5 @@
 // out: ../css/common.css
-@background-panel-color: @main-brand-color;
+@background-panel-color:@main-brand-color;
 @max-image-width: 1200px;
 
 @import "fonts.less";
@@ -8,7 +8,7 @@
 body {
   .backgrounded{
     background-image: url("../../content/images/sandymain.jpg");
-    background-color: @dark-accent-color;
+    background-color: @background-panel-color;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,17 +21,17 @@ body {
   }
   .floating(){
     background-color: @background-panel-color;
-    border-radius: 5px;
+    //border-radius: 5px;
     margin-bottom: 400px;
     min-height: 50px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
   .header-box{
-    min-height: 400px;
+    min-height: 90vh;
     text-align: center;
     font-family: @title-font;
-    color: @light-shade-color;
+    color: @dark-shade-color;
     text-shadow: 1px 1px @dark-accent-color;
     .title{
       font-size: 3em;
@@ -46,7 +46,10 @@ body {
 
   .text-box{
     .floating();
-    padding: 20px;
+    padding: 2vh 0 ;
+    width: 100vmin;
+    max-width: @max-image-width;
+    margin: auto;
     .title{
       font-size: 2em;
       .fluid-font-size(4vw; 16px; 32px);
@@ -75,5 +78,31 @@ body {
   .spacer{
     height: 10000px;
     background-color: initial;
+  }
+
+  .color{
+    width: 100px;
+    height: 100px;
+    display: none;
+  }
+  .color1{
+    .color;
+    background-color: @main-brand-color
+  }
+  .color2{
+    .color;
+    background-color: @light-shade-color
+  }
+  .color3{
+    .color;
+    background-color: @dark-shade-color
+  }
+  .color4{
+    .color;
+    background-color: @light-accent-color
+  }
+  .color5{
+    .color;
+    background-color: @dark-accent-color
   }
 }

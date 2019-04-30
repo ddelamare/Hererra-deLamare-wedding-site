@@ -1,6 +1,6 @@
 body .backgrounded {
   background-image: url("../../content/images/sandymain.jpg");
-  background-color: #835954;
+  background-color: #FC8C80;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -12,11 +12,11 @@ body .backgrounded {
   }
 }
 body .header-box {
-  min-height: 400px;
+  min-height: 90vh;
   text-align: center;
   font-family: 'Indie Flower', cursive;
-  color: #EABEAD;
-  text-shadow: 1px 1px #835954;
+  color: #C3D69B;
+  text-shadow: 1px 1px #B2A333;
 }
 body .header-box .title {
   font-size: 3em;
@@ -49,12 +49,13 @@ body .header-box .content {
   }
 }
 body .text-box {
-  background-color: #9C959D;
-  border-radius: 5px;
+  background-color: #FC8C80;
   margin-bottom: 400px;
   min-height: 50px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 20px;
+  padding: 2vh 0 ;
+  width: 100vmin;
+  max-width: 1200px;
+  margin: auto;
 }
 body .text-box .title {
   font-size: 2em;
@@ -93,14 +94,49 @@ body .text-box .content {
 body .verse {
   font-family: 'Playball', cursive;
   text-align: center;
-  color: #D4AF37;
+  color: #FFE7E7;
 }
 body .reference {
   font-family: 'Lobster Two', italic;
   text-align: right;
-  color: #D4AF37;
+  color: #FFE7E7;
 }
 body .spacer {
   height: 10000px;
   background-color: initial;
+}
+body .color {
+  width: 100px;
+  height: 100px;
+  display: none;
+}
+body .color1 {
+  width: 100px;
+  height: 100px;
+  display: none;
+  background-color: #FC8C80;
+}
+body .color2 {
+  width: 100px;
+  height: 100px;
+  display: none;
+  background-color: #FAC090;
+}
+body .color3 {
+  width: 100px;
+  height: 100px;
+  display: none;
+  background-color: #C3D69B;
+}
+body .color4 {
+  width: 100px;
+  height: 100px;
+  display: none;
+  background-color: #FFE7E7;
+}
+body .color5 {
+  width: 100px;
+  height: 100px;
+  display: none;
+  background-color: #B2A333;
 }
