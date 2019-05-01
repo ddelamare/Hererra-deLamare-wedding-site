@@ -15,11 +15,11 @@ router.post('/login', function (req, res) {
        guest.password = null;
        console.log("set session:",guest)
        req.session.guest = guest;
-       res.redirect('/');
+       res.send({success:true});
      }
      else{
        // Fall through every case... go to login screen
-       res.send(JSON.stringify({msg: 'Incorrect Guest or PIN.'}));
+       res.send(JSON.stringify({success:false, msg: 'Incorrect Guest or PIN.'}));
      }
    })
    .catch((err) => next(err));

@@ -2,10 +2,41 @@
 <div class="loginbackground">
   <div class="popup">
     <div class="loginheader">Welcome!</div>
-    <form action="/api/login" class="entry" method="post">
-      <input type="text" placeholder="Guest" name="guest"/>
-      <input type="password" placeholder="PIN" name="pin"/>
-      <input type="submit" value="Login">
+    <div action="/api/login" class="entry" method="post" id="login-form">
+      <input type="text" placeholder="Guest" id="guest"/>
+      <input type="password" placeholder="PIN" id="pin"/>
+      <input type="button" value="Login" onclick="login()">
+      <div id="error"></div>
     </div>
   <div>
 </div>
+<script type="text/javascript">
+function login(){
+
+  var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+  var theUrl = "/api/login";
+
+  xmlhttp.onreadystatechange = function() {
+    // When done
+      if (xmlhttp.readyState === 4) {
+        var resp = JSON.parse(xmlhttp.response);
+        if(resp.success)
+        {
+          document.location.href="/";
+        }
+        else {
+          var err = document.getElementById('error');
+          err.innerHTML = resp.msg;
+        }
+      }
+    }
+
+  xmlhttp.open("POST", theUrl, true);
+  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xmlhttp.send(JSON.stringify(
+    {
+      "guest": document.getElementById('guest').value,
+      "pin" : document.getElementById('pin').value
+    }));
+}
+</script>
