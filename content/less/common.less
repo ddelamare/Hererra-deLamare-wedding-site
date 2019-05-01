@@ -24,17 +24,13 @@ body,html {
 
 body {
   .backgrounded{
-    background-image: url("../../content/images/sandymain.jpg");
-    //background-color: @background-panel-color;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    //background-position: top;
-    //background-size: 70vmax;
-    background-size: 100vmin, cover;
-    @media (min-width: @max-image-width){
-      background-size: @max-image-width;
+    width: 100vw;
+    position: absolute;
+    @media(min-width: 500px)
+    {
+      position: fixed;
     }
+    z-index: -1;
   }
 
   .header-box{
@@ -42,14 +38,14 @@ body {
     text-align: center;
     font-family: @title-font;
     color: @dark-shade-color;
-    text-shadow: 1px 1px @dark-accent-color;
+    text-shadow: 3px 3px #677300;
     .title{
       font-size: 3em;
-      .fluid-font-size(8vw; 32px; 80px);
+      .fluid-font-size(12vw; 48px; 120px);
     }
     .content{
       font-size: 2em;
-      .fluid-font-size(4vw; 16px; 40px);
+      .fluid-font-size(8vw; 32px; 60px);
     }
 
   }

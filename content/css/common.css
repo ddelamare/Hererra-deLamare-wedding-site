@@ -6,19 +6,14 @@ html {
 * {
   box-sizing: border-box;
 }
-body {
-  margin: 0;
-}
 body .backgrounded {
-  background-image: url("../../content/images/sandymain.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100vmin, cover;
+  width: 100vw;
+  position: absolute;
+  z-index: -1;
 }
-@media (min-width: 1200px) {
+@media (min-width: 500px) {
   body .backgrounded {
-    background-size: 1200px;
+    position: fixed;
   }
 }
 body .header-box {
@@ -26,36 +21,36 @@ body .header-box {
   text-align: center;
   font-family: 'Indie Flower', cursive;
   color: #C3D69B;
-  text-shadow: 1px 1px #B2A333;
+  text-shadow: 3px 3px #677300;
 }
 body .header-box .title {
   font-size: 3em;
   font-size: 24px;
-  font-size: 8vw;
+  font-size: 12vw;
 }
 @media (max-width: 400px) {
   body .header-box .title {
-    font-size: 32px;
+    font-size: 48px;
   }
 }
 @media (min-width: 1000px) {
   body .header-box .title {
-    font-size: 80px;
+    font-size: 120px;
   }
 }
 body .header-box .content {
   font-size: 2em;
   font-size: 24px;
-  font-size: 4vw;
+  font-size: 8vw;
 }
 @media (max-width: 400px) {
   body .header-box .content {
-    font-size: 16px;
+    font-size: 32px;
   }
 }
-@media (min-width: 1000px) {
+@media (min-width: 750px) {
   body .header-box .content {
-    font-size: 40px;
+    font-size: 60px;
   }
 }
 body .text-box {
