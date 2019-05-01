@@ -33,10 +33,10 @@ GuestSchema.statics.authenticate = function(id,password, sessionExists)
 {
   return this.findOne({name: id}).then( (guest) => {
     if (!guest) return null;
-
-    return sessionExists || guest.comparePassword(password).then(function(isMatch)
+    var sessionGuest = sessionExists? guest:null;
+    return sessionGuest || guest.comparePassword(password).then(function(isMatch)
     {
-      return isMatch? guest  :null;
+        return isMatch? guest:null;
     });
   });
 

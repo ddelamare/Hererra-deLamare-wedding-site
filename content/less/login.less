@@ -7,6 +7,8 @@ body{
     background-size: cover;
     height: 100vh;
     width: 100vw;
+    padding-top: 15%;
+    overflow: hidden;
   }
 
   .loginheader
@@ -25,7 +27,7 @@ body{
       border-radius: 5px;
       font-weight: lighter;
       font-style: italic;
-      width: 50%;
+      width: 75%;
       margin: auto;
       margin-bottom: 20px;
     }
@@ -37,10 +39,8 @@ body{
     .floating;
     background-color: @dark-shade-color;
     width: @popupWidth;
-    height: @popupHeight;
-    float: left;
-    position: relative;
-    left: (100% - @popupWidth )/2;
-    top:  (100% - @popupHeight)/2;
+    min-height: @popupHeight;
+    min-width: 300px;
+    margin:auto;
   }
 }
