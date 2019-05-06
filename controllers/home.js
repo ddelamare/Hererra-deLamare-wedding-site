@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 var auth = require('../middleware/auth')
 var guestSchema = require('../models/guest')
+var rsvpSchema = require('../models/rsvp')
 
 router.get('/',  auth, function (req, res) {
    res.render('home');
@@ -10,6 +11,23 @@ router.get('/',  auth, function (req, res) {
 
 router.get('/login', function(req, res){
   res.render('login');
+});
+
+router.get('/rsvp', auth, function(req, res){
+  var guest = req.session.guest;
+  if (guest)
+  {
+    rsvpSchema.getByGuest(guest).then(function(existingRSVP){
+      res.render('rsvp', {
+        guest: req.session.guest,
+        rsvp: existingRSVP || {}
+      });
+    });
+  }
+  else {
+    conosle.log("Failed to render RSVP");
+    res.redirect('/');
+  }
 });
 
 router.get('/logout',function(req,res)

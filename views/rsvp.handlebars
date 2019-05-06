@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="content/css/login.css" type="text/css">
+<div class="loginbackground">
+  <div class="popup">
+    <div class="loginheader">Please RSVP by</div>
+    <div class="loginheader">July 1, 2019</div>
+    <span>Hi {{guest.name}}! You can use the form below to let us know if you can make it!</span>
+    <div class="entry" method="post" id="login-form">
+      <span>You have {{guest.maxSeats}} seats reserved in your honor.</span>
+      <div>
+        <label><input value="true" type="radio" name="accepts"/>Accepts with pleasure</label>
+        <label><input value="false" type="radio" name="accepts"/>Declines with regret</label>
+      </div>
+      <label><input type="text" placeholder="Adults" id="numAdults"/> Adults</label>
+      <label><input type="text" placeholder="Children" id="numKids"/> Children</label>
+      <input type="button" value="Login" onclick="login()">
+      <div id="error"></div>
+      <div id="successtext"></div>
+    </div>
+  <div>
+</div>
+<script type="text/javascript">
+function login(){
+
+  var xmlhttp = new XMLHttpRequest();
+  var theUrl = "/api/rsvp";
+
+  xmlhttp.onreadystatechange = function() {
+    // When done
+      if (xmlhttp.readyState === 4) {
+        var resp = JSON.parse(xmlhttp.response);
+        var err = document.getElementById('error');
+        var suc = document.getElementById('successtext');
+        if(resp.success)
+        {
+          suc.innerHTML = "Thank you! We have your RSVP!";
+          err.innerHTML = "";
+        }
+        else {
+          suc.innerHTML = "";
+          err.innerHTML = resp.msg;
+        }
+      }
+    }
+
+  xmlhttp.open("POST", theUrl, true);
+  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xmlhttp.send(JSON.stringify(
+    {
+      "accepts": document.querySelector('input[name="accepts"]:checked').value,
+      "numAdults": document.getElementById('numAdults').value,
+      "numChildren" : document.getElementById('numKids').value
+    }));
+}
+</script>

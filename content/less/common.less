@@ -24,7 +24,7 @@ body,html {
 
 body {
   .backgrounded{
-    width: 100vw;
+    width: 100%;
     position: absolute;
     @media(min-width: 500px)
     {
@@ -34,7 +34,7 @@ body {
   }
 
   .header-box{
-    min-height: 90vh;
+    min-height: calc(100vw - 100px * 9 / 16);
     text-align: center;
     font-family: @title-font;
     color: @dark-shade-color;
@@ -51,11 +51,9 @@ body {
   }
 
   .text-box{
-    .floating();
+    background-color: @background-panel-color;
     padding: 2vh 0 ;
-    width: 100vmin;
-    max-width: @max-image-width;
-    margin: auto;
+    width: 100%;
     .title{
       font-size: 2em;
       .fluid-font-size(4vw; 16px; 32px);
@@ -79,6 +77,7 @@ body {
     font-family: @reference-font;
     text-align: right;
     color: @light-accent-color;
+    padding-right: 10px;
   }
 
   .spacer{

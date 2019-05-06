@@ -34,7 +34,7 @@ RsvpSchema.statics.getByGuest = function(guest)
 }
 
 RsvpSchema.methods.validateRsvp = function(guest) {
-    return this.numAdults + this.numChildren <= guest.maxSeats;
+    return (this.numAdults + this.numChildren) <= guest.maxSeats;
 };
 
 module.exports = mongoose.model('Rsvp', RsvpSchema);

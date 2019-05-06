@@ -7,7 +7,7 @@ html {
   box-sizing: border-box;
 }
 body .backgrounded {
-  width: 100vw;
+  width: 100%;
   position: absolute;
   z-index: -1;
 }
@@ -17,7 +17,7 @@ body .backgrounded {
   }
 }
 body .header-box {
-  min-height: 90vh;
+  min-height: calc(43.75vw);
   text-align: center;
   font-family: 'Indie Flower', cursive;
   color: #C3D69B;
@@ -55,14 +55,8 @@ body .header-box .content {
 }
 body .text-box {
   background-color: #FC8C80;
-  border-radius: 5px;
-  margin-bottom: 400px;
-  min-height: 50px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 2vh 0 ;
-  width: 100vmin;
-  max-width: 1200px;
-  margin: auto;
+  width: 100%;
 }
 body .text-box .title {
   font-size: 2em;
@@ -107,6 +101,7 @@ body .reference {
   font-family: 'Lobster Two', italic;
   text-align: right;
   color: #FFE7E7;
+  padding-right: 10px;
 }
 body .spacer {
   height: 10000px;

@@ -31,7 +31,7 @@ GuestSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 GuestSchema.statics.authenticate = function(id,password, sessionExists)
 {
-  return this.findOne({name: id}).then( (guest) => {
+  return this.findOne({name: new RegExp('^' +id + '$', 'i')}).then( (guest) => {
     if (!guest) return null;
     var sessionGuest = sessionExists? guest:null;
     return sessionGuest || guest.comparePassword(password).then(function(isMatch)

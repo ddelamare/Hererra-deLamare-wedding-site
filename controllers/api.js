@@ -22,16 +22,23 @@ router.post('/login', function (req, res) {
        res.send(JSON.stringify({success:false, msg: 'Incorrect Guest or PIN.'}));
      }
    })
-   .catch((err) => next(err));
+   .catch((err) => console.log(err));
 });
 
-router.get('/rsvp',   function (req, res) {
+router.post('/rsvp',   function (req, res) {
    var guest = req.session.guest;
+   var accepts = req.body.accepts;
+   var numAdults = req.body.numAdults;
+   var numChildren = req.body.numChildren;
+   var comments = req.body.comments;
    if (guest)
    {
      rsvpSchema.getByGuest(guest).then(function(rsvp){
-       console.log(rsvp);
-       console.log(guest);
+       rsvp.accepts = accepts;
+       rsvp.numAdults = numAdults;
+       rsvp.numChildren = numChildren;
+       rsvp.comments = comments;
+       rsvp.submitted = true;
        if (rsvp.validateRsvp(guest))
        {
          rsvp.save();
