@@ -7,55 +7,104 @@ html {
   box-sizing: border-box;
 }
 body .backgrounded {
-  width: 100%;
-  position: absolute;
   z-index: -1;
+  height: 100vh;
+  max-width: 100vw;
 }
-@media (min-width: 500px) {
+@media (min-width: 1200px) {
   body .backgrounded {
     position: fixed;
+    width: calc(75vh);
   }
 }
+body .backgrounded img {
+  position: absolute;
+  height: 100%;
+  z-index: -1;
+}
+body .backgrounded img div {
+  max-width: 50vw;
+}
 body .header-box {
-  min-height: calc(43.75vw);
   text-align: center;
-  font-family: 'Indie Flower', cursive;
-  color: #C3D69B;
+  width: 100%;
+  font-family: 'Luckiest Guy', cursive;
+  color: #E6F0CD;
   text-shadow: 3px 3px #677300;
 }
 body .header-box .title {
   font-size: 3em;
   font-size: 24px;
-  font-size: 12vw;
+  font-size: 10vw;
 }
-@media (max-width: 400px) {
+@media (max-width: 320px) {
   body .header-box .title {
-    font-size: 48px;
+    font-size: 32px;
   }
 }
-@media (min-width: 1000px) {
+@media (min-width: 900px) {
   body .header-box .title {
-    font-size: 120px;
+    font-size: 90px;
   }
 }
 body .header-box .content {
   font-size: 2em;
   font-size: 24px;
-  font-size: 8vw;
+  font-size: 6vw;
 }
 @media (max-width: 400px) {
   body .header-box .content {
-    font-size: 32px;
+    font-size: 24px;
   }
 }
-@media (min-width: 750px) {
+@media (min-width: 666.66666667px) {
   body .header-box .content {
-    font-size: 60px;
+    font-size: 40px;
   }
+}
+body .header-box .inverted {
+  color: #F3746E;
+}
+body .sidebar {
+  z-index: 10;
+  text-align: justify;
+}
+@media (min-width: 1200px) {
+  body .sidebar {
+    float: right;
+    margin-left: calc(75vh);
+    min-width: 50vw;
+  }
+}
+body canvas {
+  width: 100%;
+}
+body .fountainpic {
+  display: none;
+}
+body .splash-box {
+  height: 100vh;
+  width: 100%;
+  background-color: #E6F0CD;
+}
+body .fountain-holder {
+  margin-top: 10vh;
+}
+body .verse-block {
+  padding-top: 0;
+  color: #E6F0CD;
+  text-shadow: 3px 3px #677300;
+  position: relative;
+  top: 60vh;
+}
+body .verse-block span {
+  width: 100%;
+  display: block;
 }
 body .text-box {
-  background-color: #FC8C80;
+  background-color: #F3746E;
   padding: 2vh 0 ;
+  padding-top: 0;
   width: 100%;
 }
 body .text-box .title {
@@ -65,47 +114,72 @@ body .text-box .title {
   text-align: center;
   width: 100%;
 }
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   body .text-box .title {
-    font-size: 16px;
+    font-size: 24px;
   }
 }
-@media (min-width: 800px) {
+@media (min-width: 1200px) {
   body .text-box .title {
-    font-size: 32px;
+    font-size: 48px;
   }
 }
 body .text-box .content {
   font-size: 1em;
   font-size: 24px;
-  font-size: 2vw;
+  font-size: 1vw;
   width: 100%;
   display: block;
+  padding: 10%;
+  padding-top: 3%;
 }
-@media (max-width: 800px) {
+@media (max-width: 1600px) {
   body .text-box .content {
     font-size: 16px;
   }
 }
-@media (min-width: 1600px) {
+@media (min-width: 4800px) {
   body .text-box .content {
-    font-size: 32px;
+    font-size: 48px;
   }
 }
 body .verse {
   font-family: 'Playball', cursive;
   text-align: center;
-  color: #FFE7E7;
+  font-size: 24px;
+  font-size: 1vw;
+}
+@media (max-width: 2400px) {
+  body .verse {
+    font-size: 24px;
+  }
+}
+@media (min-width: 3200px) {
+  body .verse {
+    font-size: 32px;
+  }
 }
 body .reference {
-  font-family: 'Lobster Two', italic;
-  text-align: right;
-  color: #FFE7E7;
+  font-family: 'Playball', cursive;
+  text-align: center;
   padding-right: 10px;
+  font-size: 24px;
+  font-size: 1vw;
+}
+@media (max-width: 2400px) {
+  body .reference {
+    font-size: 24px;
+  }
+}
+@media (min-width: 3200px) {
+  body .reference {
+    font-size: 32px;
+  }
 }
 body .spacer {
   height: 10000px;
   background-color: initial;
+  display: none;
 }
 body .color {
   width: 100px;
@@ -116,7 +190,7 @@ body .color1 {
   width: 100px;
   height: 100px;
   display: none;
-  background-color: #FC8C80;
+  background-color: #F3746E;
 }
 body .color2 {
   width: 100px;
@@ -128,7 +202,7 @@ body .color3 {
   width: 100px;
   height: 100px;
   display: none;
-  background-color: #C3D69B;
+  background-color: #E6F0CD;
 }
 body .color4 {
   width: 100px;
@@ -140,5 +214,5 @@ body .color5 {
   width: 100px;
   height: 100px;
   display: none;
-  background-color: #B2A333;
+  background-color: #6E674A;
 }
