@@ -1,0 +1,47 @@
+// out: ../css/rsvp.css
+@import (reference) "common.less";
+
+
+body{
+  .loginbackground{
+    background-image: url("../../content/images/login_splash.jpg");
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 15%;
+    overflow: hidden;
+  }
+
+  .loginheader
+  {
+    text-align: center;
+    .fluid-font-size(4vw; 16px; 40px);
+  }
+
+  .entry{
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    padding: 25%;
+    input{
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: lighter;
+      font-style: italic;
+      width: 75%;
+      margin: auto;
+      margin-bottom: 20px;
+    }
+  }
+
+  @popupWidth: 40%;
+  @popupHeight: 50%;
+  .popup{
+    .floating;
+    background-color: @dark-shade-color;
+    width: @popupWidth;
+    min-height: @popupHeight;
+    min-width: 300px;
+    margin:auto;
+  }
+}

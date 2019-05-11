@@ -3,19 +3,17 @@ var router = express.Router();
 var auth = require('../middleware/auth');
 var guestSchema = require('../models/guest')
 var rsvpSchema = require('../models/rsvp')
+var _ = require('underscore')
 
 router.post('/login', function (req, res) {
    var id = req.body.guest;
    var pin = req.body.pin;
-   console.log(id);
-   console.log(pin);
    guestSchema.authenticate(id,pin,false).then( (guest) => {
      authComplete = !!guest;
 
      // If the auth is done, we can set the session
      if (authComplete) {
        guest.password = null;
-       console.log("set session:",guest)
        req.session.guest = guest;
        res.send({success:true});
      }
@@ -27,14 +25,31 @@ router.post('/login', function (req, res) {
    .catch((err) => console.log(err));
 });
 
+function validate(accepted, adults, kids, guest){
+  if (!accepted) return "We need to know if you can make it! Please choose accept or decine."
+  if (adults.length && !_.isFinite(parseInt(adults))) return "The number of adults doesn't look like a number"
+  if (kids.length && !_.isFinite(parseInt(kids))) return "The number of kids doesn't look like a number"
+  if (accepted == 'true' && !adults.length && !kids.length) return "You accepted, but no one is coming?"
+  if ((parseInt(adults) + parseInt(kids)) <= guest.maxSeats) return "Sorry, that's more guests than we have spots for"
+  return null;
+}
+
 router.post('/rsvp',   function (req, res) {
    var guest = req.session.guest;
-   var accepts = req.body.accepts;
+   var accepts = req.body.accepts
    var numAdults = req.body.numAdults;
    var numChildren = req.body.numChildren;
    var comments = req.body.comments;
    if (guest)
    {
+
+     var err = validate(accepts,numAdults,numChildren, guest)
+     if (err)
+     {
+       res.send({success:false, msg: err});
+       return;
+     }
+
      rsvpSchema.getByGuest(guest).then(function(rsvp){
        rsvp.accepts = accepts;
        rsvp.numAdults = numAdults;
@@ -47,7 +62,7 @@ router.post('/rsvp',   function (req, res) {
          res.send({success:true});
        }
        else {
-         res.send({success:false, msg: "Invalid guest count."});
+         res.send({success:false, msg: "Sorry, that's more guests than we have spots for"});
        }
      });
    }

@@ -18,6 +18,11 @@ router.get('/rsvp', auth, function(req, res){
   if (guest)
   {
     rsvpSchema.getByGuest(guest).then(function(existingRSVP){
+      // Precalcualted values for rendering
+      existingRSVP.accepted = existingRSVP.submitted && existingRSVP.accepts;
+      existingRSVP.declined = existingRSVP.submitted && !existingRSVP.accepts;
+      existingRSVP.numAdults = existingRSVP.submitted ? existingRSVP.numAdults : "";
+      existingRSVP.numChildren = existingRSVP.submitted ? existingRSVP.numChildren : "";
       res.render('rsvp', {
         guest: req.session.guest,
         rsvp: existingRSVP || {}
