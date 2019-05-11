@@ -7,6 +7,8 @@ var rsvpSchema = require('../models/rsvp')
 router.post('/login', function (req, res) {
    var id = req.body.guest;
    var pin = req.body.pin;
+   console.log(id);
+   console.log(pin);
    guestSchema.authenticate(id,pin,false).then( (guest) => {
      authComplete = !!guest;
 
@@ -53,6 +55,22 @@ router.post('/rsvp',   function (req, res) {
      res.send({success:false});
    }
 });
+
+router.post('/addLogin', auth, function (req,res){
+  for( var id in req.body.users )
+  {
+    var user = req.body.users[id];
+    var guest = new guestSchema({
+      name: user.Username,
+      password: user.Password,
+      maxSeats: user.MaxGuest,
+      displayname: user.DisplayName
+    });
+    guest.save();
+  }
+  res.send("complete")
+});
+
 
 router.get('/', function (req, res) {
    res.send("API");

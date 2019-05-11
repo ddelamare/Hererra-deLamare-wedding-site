@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 
 var GuestSchema = new Schema({
     name: { type: String, required: true, index: { unique: true } },
+    displayname: String,
     password: { type: String, required: true },
     maxSeats: Number,
     email: String

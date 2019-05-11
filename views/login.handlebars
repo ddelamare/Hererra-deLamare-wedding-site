@@ -5,12 +5,24 @@
     <div action="/api/login" class="entry" method="post" id="login-form">
       <input type="text" placeholder="Guest" id="guest"/>
       <input type="password" placeholder="PIN" id="pin"/>
-      <input type="button" value="Login" onclick="login()">
+      <input type="button" value="Login" onclick="login()" id="login">
       <div id="error"></div>
     </div>
   <div>
 </div>
 <script type="text/javascript">
+// Get the input field
+var input = document.getElementById("pin");
+
+input.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("login").click();
+  }
+});
+
+
 function login(){
 
   var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance

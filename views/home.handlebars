@@ -15,8 +15,11 @@
     <div class="title inverted">We're getting married!</div>
     <div class="content inverted">And you're invited!</div>
     <div>
-      <image class="fountainpic" id="fountainpic" src="../../content/images/fountain.png" />
-      <canvas id="fountain" />
+      <image class="fountainpic" id="fountainpic" src="../../content/images/fountain.gif" />
+    </div>
+    <div>
+      <button type="button" class="rsvp"  onclick="window.location.href = '/rsvp';">RSVP Here!</button>
+      <button type="button" class="details"  onclick="window.location.href = '#details';">Get Details!</button>
     </div>
   </div>
 </div>
@@ -52,14 +55,13 @@
       <p class="story">And that’s how the official courtship started.</p>
     </span>
   </div>
-  <div class="text-box color2">
-    <div class="title">Wedding Deets</div>
+  <div class="text-box" id="details">
+    <div class="title">The Details</div>
     <span class="content">my sunshine my only sunshine you make me happy when skies are gray</span>
   </div>
-  <div class="text-box color3">
+  <div class="text-box">
     <div class="title">You are</div>
     <span class="content">my sunshine my only sunshine you make me happy when skies are gray</span>
   </div>
   <div class="spacer"/>
 </div>
-<script src="../../content/js/fountain.js"></script>
