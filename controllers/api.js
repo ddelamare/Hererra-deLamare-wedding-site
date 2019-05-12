@@ -30,16 +30,25 @@ function validate(accepted, adults, kids, guest){
   if (adults.length && !_.isFinite(parseInt(adults))) return "The number of adults doesn't look like a number"
   if (kids.length && !_.isFinite(parseInt(kids))) return "The number of kids doesn't look like a number"
   if (accepted == 'true' && !adults.length && !kids.length) return "You accepted, but no one is coming?"
-  if ((parseInt(adults) + parseInt(kids)) <= guest.maxSeats) return "Sorry, that's more guests than we have spots for"
+  if ((parseInt(adults) + parseInt(kids)) > guest.maxSeats) return "Sorry, that's more guests than we have spots for"
   return null;
 }
 
-router.post('/rsvp',   function (req, res) {
+router.get('/rsvps', auth, function (req,res)
+{
+  rsvpSchema.find({}).populate('guestFor').exec().then(function(guests){
+    console.log(guests);
+    res.send(guests);
+  });
+});
+
+router.post('/rsvp', auth,  function (req, res) {
    var guest = req.session.guest;
    var accepts = req.body.accepts
    var numAdults = req.body.numAdults;
    var numChildren = req.body.numChildren;
    var comments = req.body.comments;
+   var allergies = req.body.allergies;
    if (guest)
    {
 
@@ -55,6 +64,7 @@ router.post('/rsvp',   function (req, res) {
        rsvp.numAdults = numAdults;
        rsvp.numChildren = numChildren;
        rsvp.comments = comments;
+       rsvp.allergies = allergies;
        rsvp.submitted = true;
        if (rsvp.validateRsvp(guest))
        {

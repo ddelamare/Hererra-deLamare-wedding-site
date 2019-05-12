@@ -11,6 +11,7 @@ var RsvpSchema = new Schema({
     numAdults: Number,
     numChildren: Number,
     comments: String,
+    allergies: String,
     submitted: Boolean
 });
 

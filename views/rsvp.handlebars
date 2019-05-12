@@ -1,20 +1,28 @@
 <link rel="stylesheet" href="content/css/rsvp.css" type="text/css">
 <div class="loginbackground">
   <div class="popup">
-    <div class="loginheader">Please RSVP by</div>
-    <div class="loginheader">July 1, 2019</div>
-    <span>Hi {{guest.displayname}}! You can use the form below to let us know if you can make it!</span>
+    <div class="greeting">Hi {{guest.displayname}}! You can use the form below to let us know if you can make it!</div>
     <div class="entry" method="post" id="login-form">
-      <span>You have {{guest.maxSeats}} seats reserved in your honor.</span>
       <div>
-        <label><input value="true" type="radio" name="accepts" {{#if rsvp.accepted}}checked{{/if}} />Accepts with pleasure</label>
-        <label><input value="false" type="radio" name="accepts"{{#if rsvp.declined}}checked{{/if}}/>Declines with regret</label>
+        <div class="radio-container"><label><input value="true" type="radio" name="accepts" {{#if rsvp.accepted}}checked{{/if}} /><span class="checkmark"></span>Accepts with pleasure</label></div>
+        <div class="radio-container"><label><input value="false" type="radio" name="accepts"{{#if rsvp.declined}}checked{{/if}}/><span class="checkmark"></span>Declines with regret</label></div>
       </div>
-      <label><input type="text" placeholder="Adults" id="numAdults" value="{{rsvp.numAdults}}"/> Adults</label>
-      <label><input type="text" placeholder="Children" id="numKids" value="{{rsvp.numChildren}}"/> Children</label>
-      <input type="button" value="Send RSVP" onclick="rsvp()">
-      <div id="error"></div>
-      <div id="successtext"></div>
+      <div>
+        <div class="seats">You have {{guest.maxSeats}} seats reserved in your honor.</div>
+        <label>Adults</label><input type="text" placeholder="Adults" id="numAdults" value="{{rsvp.numAdults}}"/>
+        <label>Children</label><input type="text" placeholder="Children" id="numKids" value="{{rsvp.numChildren}}"/>
+        <div class="notes">
+          <label>Allergies</label>
+          <input placeholder="Allergies" id="allergy" value="{{rsvp.allergies}}"/>
+          <label>Comments</label>
+          <textarea id="notes" placeholder="We want to hear from you!">{{rsvp.comments}}</textarea>
+        </div>
+        <input type="button" value="Send RSVP" onclick="rsvp()">
+        <div id="error"></div>
+        <div id="successtext"></div>
+      </div>
+      <div class="loginheader">Please RSVP by</div>
+      <div class="loginheader">July 1, 2019</div>
     </div>
   <div>
 </div>
@@ -72,7 +80,9 @@ function rsvp(){
     {
       "accepts": document.querySelector('input[name="accepts"]:checked').value,
       "numAdults": document.getElementById('numAdults').value,
-      "numChildren" : document.getElementById('numKids').value
+      "numChildren" : document.getElementById('numKids').value,
+      "allergies" : document.getElementById('allergy').value,
+      "comments" : document.getElementById('notes').value
     }));
 }
 </script>
