@@ -5,7 +5,14 @@
 @import "fonts.less";
 @import "palette.less";
 @import "radio.less";
-
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -60,6 +67,20 @@ body {
     }
     .inverted{
       color: @background-panel-color;
+    }
+
+  }
+
+  .schedule{
+    text-align: center;
+    border: 1px solid @light-shade-color;
+    ul{
+      width: 50%;
+      text-align: left;
+      margin: auto;
+      li{
+        padding: 10px;
+      }
     }
 
   }
@@ -143,8 +164,9 @@ body {
     display: none;
   }
 
-  .color{
-
+  .map{
+    margin: auto;
+    text-align: center;
   }
 
   button {
@@ -159,6 +181,16 @@ body {
     cursor: pointer;
   }
 
+  #details{
+    background-color: @dark-shade-color;
+    .content{
+      padding-bottom:20px;
+    }
+    iframe{
+      max-width: 100vw;
+    }
+  }
+
   .rsvp{
     background-color: @main-brand-color;
   }
@@ -166,15 +198,12 @@ body {
     background-color: @light-shade-color;
   }
   .color3{
-    .color;
     background-color: @dark-shade-color
   }
   .color4{
-    .color;
     background-color: @light-accent-color
   }
   .color5{
-    .color;
     background-color: @dark-accent-color
   }
 }

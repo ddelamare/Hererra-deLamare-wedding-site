@@ -56,6 +56,14 @@
   border-radius: 50%;
   background: white;
 }
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -124,6 +132,18 @@ body .header-box .content {
 }
 body .header-box .inverted {
   color: #F3746E;
+}
+body .schedule {
+  text-align: center;
+  border: 1px solid #FAC090;
+}
+body .schedule ul {
+  width: 50%;
+  text-align: left;
+  margin: auto;
+}
+body .schedule ul li {
+  padding: 10px;
 }
 body .sidebar {
   z-index: 10;
@@ -242,6 +262,10 @@ body .spacer {
   background-color: initial;
   display: none;
 }
+body .map {
+  margin: auto;
+  text-align: center;
+}
 body button {
   border: none;
   color: white;
@@ -252,6 +276,15 @@ body button {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+body #details {
+  background-color: #E6F0CD;
+}
+body #details .content {
+  padding-bottom: 20px;
+}
+body #details iframe {
+  max-width: 100vw;
 }
 body .rsvp {
   background-color: #F3746E;
