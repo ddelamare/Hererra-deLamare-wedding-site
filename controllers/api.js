@@ -37,7 +37,6 @@ function validate(accepted, adults, kids, guest){
 router.get('/rsvps', auth, function (req,res)
 {
   rsvpSchema.find({}).populate('guestFor').exec().then(function(guests){
-    console.log(guests);
     res.send(guests);
   });
 });
