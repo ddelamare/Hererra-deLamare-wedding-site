@@ -145,6 +145,12 @@ body .schedule ul {
 body .schedule ul li {
   padding: 10px;
 }
+body .centered {
+  text-align: center;
+}
+body .registryImg {
+  width: 30%;
+}
 body .sidebar {
   z-index: 10;
   text-align: justify;
@@ -194,6 +200,7 @@ body .text-box .title {
   font-size: 4vw;
   text-align: center;
   width: 100%;
+  padding-top: 20px;
 }
 @media (max-width: 600px) {
   body .text-box .title {
@@ -223,6 +230,9 @@ body .text-box .content {
   body .text-box .content {
     font-size: 48px;
   }
+}
+body .text-box .nopad {
+  padding-bottom: 0;
 }
 body .verse {
   font-family: 'Playball', cursive;
@@ -256,11 +266,6 @@ body .reference {
   body .reference {
     font-size: 32px;
   }
-}
-body .spacer {
-  height: 10000px;
-  background-color: initial;
-  display: none;
 }
 body .map {
   margin: auto;

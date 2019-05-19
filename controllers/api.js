@@ -37,7 +37,21 @@ function validate(accepted, adults, kids, guest){
 router.get('/rsvps', auth, function (req,res)
 {
   rsvpSchema.find({}).populate('guestFor').exec().then(function(guests){
-    res.send(guests);
+    var rsvps = [];
+    for (var i = 0; i < guests.length; i++)
+    {
+      var rsvp = guests[i];
+      console.log( guests[i].guestFor.name);
+      rsvp.name = guests[i].guestFor.name;
+      console.log(rsvp.name);
+
+      rsvp.guestFor = rsvp.name;
+      console.log(rsvp.name);
+
+      rsvps.push(rsvp);
+
+    }
+    res.send(rsvps);
   });
 });
 
@@ -50,7 +64,6 @@ router.post('/rsvp', auth,  function (req, res) {
    var allergies = req.body.allergies;
    if (guest)
    {
-
      var err = validate(accepts,numAdults,numChildren, guest)
      if (err)
      {
