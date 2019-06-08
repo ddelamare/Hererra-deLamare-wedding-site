@@ -46,10 +46,18 @@ router.get('/rsvps', auth, function (req,res)
       console.log(rsvp.name);
 
       rsvp.guestFor = rsvp.name;
-      console.log(rsvp.name);
-
-      rsvps.push(rsvp);
-
+      var rsvpStr = "RSVP: " + rsvp.name + " ";
+      if (rsvp.accepts)
+        rsvpStr += "accepts for " + (rsvp.numAdults + rsvp.numChildren) + " seat(s)";
+      else {
+        rsvpStr += "declines";
+      }
+      if (rsvp.comments)
+        rsvpStr += " and says '" + rsvp.comments + "'";
+      if (rsvp.allergies)
+        rsvpStr += " and has allergy " + rsvp.allergies
+      rsvpStr += ".";
+      rsvps.push(rsvpStr);
     }
     res.send(rsvps);
   });

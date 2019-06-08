@@ -52,6 +52,7 @@ function rsvp(){
   {
     suc.innerHTML = "";
     err.innerHTML = error;
+    alert(error)
     return;
   }
 
@@ -64,12 +65,15 @@ function rsvp(){
         var resp = JSON.parse(xmlhttp.response);
         if(resp.success)
         {
-          suc.innerHTML = "Thank you! We have your RSVP!";
+          suc.innerHTML = "Thank you! We have your RSVP! You will now be returned to the homepage";
           err.innerHTML = "";
+          alert(suc.innerHTML)
+          location.href = '/'
         }
         else {
           suc.innerHTML = "";
           err.innerHTML = resp.msg;
+          alert(resp.msg)
         }
       }
     }

@@ -271,6 +271,9 @@ body .map {
   margin: auto;
   text-align: center;
 }
+body .bigfont {
+  font-size: 1.5em;
+}
 body button {
   border: none;
   color: white;
@@ -297,12 +300,9 @@ body .rsvp {
 body .details {
   background-color: #FAC090;
 }
-body .color3 {
-  background-color: #E6F0CD;
+body .registry {
+  background-color: #89CFF0;
 }
-body .color4 {
-  background-color: #FFE7E7;
-}
-body .color5 {
+body .roomblock {
   background-color: #6E674A;
 }

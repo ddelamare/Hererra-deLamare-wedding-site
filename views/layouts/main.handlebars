@@ -7,17 +7,18 @@
  <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster+Two|Playball|Luckiest+Guy" type="text/css">
  <link rel="stylesheet" href="content/css/common.css" type="text/css">
- <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-XXXXXXXX-Y']);
-  _gaq.push(['_trackPageview']);
-  (function()
-  {
-   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
- </script>
+ <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			  crossorigin="anonymous" defer>
+</script>
+<script>
+// aid should be the id of the element
+function scrollToAnchor(aid){
+    var aTag = $(aid);
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+}
+</script>
 </head>
   {{{body}}}
 </html>

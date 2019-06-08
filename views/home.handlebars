@@ -19,7 +19,9 @@
     </div>
     <div>
       <button type="button" class="rsvp"  onclick="window.location.href = '/rsvp';">RSVP Here!</button>
-      <button type="button" class="details"  onclick="window.location.href = '#details';">Get Details!</button>
+      <button type="button" class="details"  onclick="scrollToAnchor('#details');">Get Details!</button>
+      <button type="button" class="roomblock"  onclick="scrollToAnchor('#roomblock');">Room Block</button>
+      <button type="button" class="registry"  onclick="scrollToAnchor('#registry');">Registry</button>
     </div>
   </div>
 </div>
@@ -45,7 +47,7 @@
         <li>10:30AM - Ceremony</li>
         <li>11AM - Cocktail Hour</li>
         <li>12PM - Lunch and Reception</li>
-        <li>3PM - It's Over!</li>
+        <li>4PM - It's Over!</li>
       </ul>
     </div>
     <div class="map">
@@ -54,12 +56,15 @@
     <div class="content">
       There are 90 street parking spots available around the venue with no meter or time limit despite what the signs say. Carpooling is encouraged.
     </div>
-    <div class="content">
-      We are working on getting a room block set up at a nearby hotel which will have reduced rates.
+    <div class="content" id="attire">
+      Please come and join us in semi-formal attire and no denim.
+    </div>
+    <div class="content" id="roomblock">
+      We have setup a room block at a local Marriot hotel to have reduced rates for our wedding. <br/> <a class="bigfont" href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1559763417641&key=GRP&app=resvlink" target="_blank">Please click here to use our room block. </a>
     </div>
   </div>
   <div class="text-box centered">
-    <div class="title">Registry</div>
+    <div class="title" id="registry">Registry</div>
     <span class="content nopad">We are currenly registered at </span>
     <span class="content">
       <a href="https://www.bedbathandbeyond.com/store/giftregistry/viewregistryguest/547481195?eventType=Wedding">
