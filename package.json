@@ -50,7 +50,7 @@
     "mime-types": "^2.1.24",
     "minimatch": "^3.0.4",
     "minimist": "^1.2.0",
-    "mongoose": "^5.5.4",
+    "mongoose": "^5.7.5",
     "ms": "^2.1.1",
     "negotiator": "^0.6.1",
     "neo-async": "^2.6.0",
