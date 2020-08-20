@@ -6,7 +6,7 @@
     "array-flatten": "^2.1.2",
     "asap": "^2.0.6",
     "balanced-match": "^1.0.0",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "brace-expansion": "^1.1.11",
     "bytes": "^3.1.0",
