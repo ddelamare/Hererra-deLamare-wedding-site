@@ -49,7 +49,7 @@
     "mime-db": "^1.40.0",
     "mime-types": "^2.1.24",
     "minimatch": "^3.0.4",
-    "minimist": "^1.2.3",
+    "minimist": "^1.2.6",
     "mongoose": "^5.7.5",
     "ms": "^2.1.1",
     "negotiator": "^0.6.1",
