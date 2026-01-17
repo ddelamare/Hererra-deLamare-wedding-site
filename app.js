@@ -41,7 +41,7 @@ db.then(function(val)
       secret: global.config.secret,
       resave:false,
       saveUninitialized: false,
-      store: MongoStore.create({ mongooseConnection: mongoose.connection }),
+      store: MongoStore.create({ client: mongoose.connection.getClient() }),
       cookie : {
         maxAge: 30 * 86400 * 1000, // 1 Month
     }
