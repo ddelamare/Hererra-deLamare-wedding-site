@@ -5,7 +5,7 @@ const db = require('./models/db')
 const guestSchema = require('./models/guest')
 const config = require('./models/config')
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
@@ -14,7 +14,7 @@ const port = 8000
 var app = express();
 
 // Init handlebars
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs.engine({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 //Host static content
@@ -41,7 +41,7 @@ db.then(function(val)
       secret: global.config.secret,
       resave:false,
       saveUninitialized: false,
-      store: new MongoStore({ mongooseConnection: mongoose.connection }),
+      store: MongoStore.create({ client: mongoose.connection.getClient() }),
       cookie : {
         maxAge: 30 * 86400 * 1000, // 1 Month
     }
