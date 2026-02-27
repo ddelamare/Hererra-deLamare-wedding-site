@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
-    const uuidv4 = require('uuid/v4');
+    const { v4: uuidv4 } = require('uuid');
 
     var Config = new Schema({
         secret: String,
